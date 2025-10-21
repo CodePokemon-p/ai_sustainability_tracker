@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer utilities {
+
+
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-black text-white;
+}
+
+/* Glow animation */
+.glow {
+  text-shadow: 0 0 6px #22c55e, 0 0 12px #22c55e;
+}
+html {
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+  .light-mode body {
+    @apply bg-[#1e1e1e] text-gray-200; /* Soft dark gray */
+  }
+
+  /* Backgrounds */
+  .light-mode .bg-black {
+    @apply bg-[#111827] !important; /* Slightly lighter than body */
+  }
+  .light-mode .bg-gray-900 {
+    @apply bg-[#010203] !important; /* Mid-tone dark gray */
+  }
+  .light-mode .bg-gray-800 {
+    @apply bg-[#111827] !important; /* Brighter for cards/hovers */
+  }
+
+  /* Text Colors */
+  .light-mode .text-white {
+    @apply text-[#00ff88] !important; /* Your glowing green */
+  }
+  .light-mode .text-green-400 {
+    @apply text-[#00ff88] !important; /* Neon green */
+  }
+  .light-mode .text-gray-300 {
+    @apply text-[#cccccc] !important; /* Light gray (softer than white) */
+  }
+  .light-mode .text-gray-400 {
+    @apply text-[#aaaaaa] !important; /* Medium gray */
+  }
+
+  /* Borders & Buttons */
+  .light-mode .border-green-500 {
+    @apply border-[#00ff88] !important; /* Glowing green */
+  }
+  .light-mode .glow-button {
+    box-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88;
+  }
+
+  /* Dark Mode (Default - Pure Dark) */
+  .dark-mode body {
+    @apply bg-[#121212] text-gray-100;
+  }
+  .glow {
+  animation: glowEffect 2.5s infinite alternate;
+}
+
+@keyframes glowEffect {
+  from {
+    text-shadow: 0 0 5px #00ffae, 0 0 10px #00ffae;
+  }
+  to {
+    text-shadow: 0 0 20px #00ffae, 0 0 30px #00ffae;
+  }
+}
+
+}

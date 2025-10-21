@@ -1,0 +1,11 @@
+flask
+flask-cors
+scikit-learn
+pandas
+numpy
+torch
+transformers
+peft
+datasets
+bitsandbytes
+accelerate
