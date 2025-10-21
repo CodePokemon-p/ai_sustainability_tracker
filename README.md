@@ -1,17 +1,5 @@
-<<<<<<< HEAD
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-=======
 # AI Sustainability Tracker
 
 **Project:** AI Sustainability Tracker for Textile Factories & Eco-Brands  
@@ -58,36 +46,52 @@ It also integrates **AI-driven analytics**, predictive alerts, and interactive t
 - Provides guidance and answers questions related to environmental impact.
 - Run backend with: uvicorn eco_bot:app --reload --port 8000
 
+## 📦 Additional Project Resources
+
+Some project components (due to large size) are hosted externally.
+
+You can download them here:  
+🔗 **Google Drive Link:** [Click to access backend, model, and environment folders](https://drive.google.com/drive/folders/10suWg5OIHMBZnAicmI9WiYjzEHoeb1QX?usp=sharing+
++)
+
+**Included in Drive:**
+- `backend/` folder (Node + Flask backend)
+- `flan-env/` (Python virtual environment)
+- `ml-model/` (trained machine learning model files)
+- `node_modules/` (local dependencies)
+
+> These files are excluded from GitHub due to size limits.  
+> Please extract them in the root project directory after download.
+
+---
+
+## ⚙️ Security+ Threshold
+
+- JWT authentication, secure hosting, and model input validation  
+- Ensures **10% tolerance** for prediction/utilization deviation  
+- Enterprise-level **security, reproducibility, and data integrity**
+
+---
+
+## 🧠 Tech Stack
+
+**Frontend:** React, Tailwind CSS, Framer Motion, AOS, React Router  
+**Backend:** Node.js / Express, MongoDB, JWT Auth  
+**AI / ML Microservices:** Python / Flask, Gemini-based RLCV Regression Model  
+**File Management:** Git LFS for large files (.pkl, .csv, .zip, .dxf)
+
+---
+
+## 🚀 Quick Setup Steps
+
+**1️⃣ Clone repository with Git LFS:**
 ```bash
-uvicorn eco_bot:app --reload --port 8000
-Security+ Threshold
-JWT authentication, secure hosting, and model input validation.
-
-Ensures 10% tolerance for prediction/utilization deviation.
-
-Enterprise-level security and reproducibility built-in.
-
-Tech Stack
-Frontend: React, Tailwind CSS, Framer Motion, AOS, React Router
-
-Backend: Node.js / Express, MongoDB, JWT Auth
-
-AI / ML Microservices: Python / Flask, Gemini-based RLCV Regression Model
-
-File Management: Git LFS for large files (.pkl, .csv, .zip, .dxf)
-
-Installation & Setup
-Clone repository with Git LFS:
-
 git lfs install
 git clone https://github.com/CodePokemon-p/ai_sustainability_tracker.git
 cd ai_sustainability_tracker
-Install Python dependencies:
-
-
+2️⃣ Install Python dependencies:
 pip install -r requirements.txt
-Install Node.js dependencies:
-
+3️⃣ Install Node.js dependencies:
 
 # Frontend
 cd frontend
@@ -96,60 +100,57 @@ npm install
 # Backend
 cd ../backend
 npm install
-Running the Project
+🧩 Running the Project
 Frontend
+
 
 cd frontend
 npm run dev
 Backend (Node.js)
 
+
 cd backend
-node node-server.js
-ML/Flask Services
-All Flask-related tools are in the ml-model folder:
+node server.js
+ML / Flask Services
 
 
 cd ml-model
 
-# Run Tracker/Pattern Optimizer
+# Run Tracker or Pattern Optimizer
 python app.py
 python pattern_app.py
 
 # Run Report Analyzer
 python analyzer.py
 
-# Run MessageAlert
-python app.py
-EcoBoot AI Chatbot
-# uvicorn eco_bot:app --reload --port 8000
-Usage
-Access the tracker dashboard via frontend.
+# Run MessageAlert or EcoBot AI Chatbot
+uvicorn eco_bot:app --reload --port 8000
+🌱 Usage
+Access the Tracker Dashboard via frontend
 
-Upload CSV/PDF reports to analyze sustainability metrics.
+Upload CSV / PDF reports to analyze sustainability metrics
 
-Use the Pattern Layout Optimizer to generate fabric layouts.
+Use Pattern Layout Optimizer to generate efficient fabric layouts
 
-Interact with EcoBoot AI Chatbot for sustainability guidance.
+Interact with EcoBot AI Chatbot for sustainability guidance
 
-Managers can send alerts/messages using MessageAlert, visible to employees in the Alert Center.
+Managers can send alerts/messages visible to employees in the Alert Center
 
-Contributing
-Fork the repository and create a new branch for your feature.
+🤝 Contributing
+Fork the repository and create a new branch for your feature
 
-Track large files using Git LFS.
+Track large files using Git LFS
 
-Submit pull requests with detailed descriptions of changes.
+Submit pull requests with clear descriptions of your changes
 
-License
-This project is licensed under the MIT License.
+📜 License
+This project is licensed under the MIT License
 
-Notes
-Large files (.pkl, .csv, .zip, .dxf) are managed using Git LFS.
+📝 Notes
+Large files (.pkl, .csv, .zip, .dxf) are managed using Git LFS
 
 For local development, always ensure:
 
-
 git lfs install
 git pull
-Security+ Threshold ensures enterprise-level security, reproducibility, and data integrity.
->>>>>>> ba1214d33f64745268a2c50144c7a16874b51495
+Security+ Threshold ensures enterprise-grade protection and reproducibility
