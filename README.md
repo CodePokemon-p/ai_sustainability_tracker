@@ -1,5 +1,3 @@
-<img width="780" height="487" alt="image" src="https://github.com/user-attachments/assets/7826215b-d69e-4304-b17e-343ee79a941e" />
-
 # AI Sustainability Tracker
 
 **Project:** AI Sustainability Tracker for Textile Factories & Eco-Brands  
@@ -24,16 +22,15 @@ It also integrates **AI-driven analytics**, predictive alerts, and interactive t
 - Supports multiple product types: Recycled Poly, Organic Cotton, Synthetic Blend, Microfiber.
 - Multi-line, concise dashboard analytics.
 - Run via  (python app.py)
-  <img width="780" height="415" alt="image" src="https://github.com/user-attachments/assets/e5cb35d8-8278-498e-ae79-75a8ade6ac18" />
-Figure 1: Fronted dashboard showing real-time optimization results
+
 
 ### AI Pattern Layout Optimizer
 - Uses a **Genetic Algorithm (GA)** and **Computer Vision (CV)** to optimize fabric layouts.
 - Maximizes utilization (80–90%) and reduces fabric waste.
 - Generates **DXF files** for production.
 -  Run via (python pattern_app.py)
-  <img width="780" height="487" alt="image" src="https://github.com/user-attachments/assets/8b40408f-3e2a-4cff-934c-74fd0a8eab02" />
-Figure 2: Postman API response showing 82.53% utilization
+   <img width="780" height="415" alt="image" src="https://github.com/user-attachments/assets/e5cb35d8-8278-498e-ae79-75a8ade6ac18" />
+      Figure 1: Fronted dashboard showing real-time optimization result.
 
 ### Report Analyzer
 - Upload CSV or PDF reports to analyze environmental metrics.
