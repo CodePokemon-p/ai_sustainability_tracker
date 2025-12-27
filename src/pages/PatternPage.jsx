@@ -28,47 +28,103 @@ const PatternPage = () => {
   };
 
   const handleOptimize = async () => {
-    if (!patternFile) {
-      alert("Please upload a pattern DXF file.");
-      return;
-    }
-    if (!fabricWidth) {
-      alert("Please specify fabric width.");
-      return;
-    }
+  if (!patternFile) {
+    alert("Please upload a pattern DXF file.");
+    return;
+  }
+  if (!fabricWidth) {
+    alert("Please specify fabric width.");
+    return;
+  }
 
-    setLoading(true);
+  setLoading(true);
 
-    const formData = new FormData();
-    formData.append("dxf_file", patternFile); // 🔥 CHANGED THIS LINE
-    formData.append("fabric_width", fabricWidth);
-    formData.append("fabric_type", fabricType);
-    formData.append("seam_allowance", seamAllowance);
-    formData.append("allow_rotation", allowRotation ? "true" : "false");
-    formData.append("strategy", strategy);
+  const formData = new FormData();
+  formData.append("dxf_file", patternFile);
+  formData.append("fabric_width", fabricWidth);
+  formData.append("fabric_type", fabricType);
+  formData.append("seam_allowance", seamAllowance);
+  formData.append("allow_rotation", allowRotation ? "true" : "false");
+  formData.append("strategy", strategy);
 
+  try {
+    console.log("📤 Sending optimization request...");
+    
+    const res = await fetch("http://127.0.0.1:5001/optimize", {
+      method: "POST",
+      body: formData,
+    });
+
+    // Get response as text first
+    const responseText = await res.text();
+    console.log("📥 Raw response:", responseText.substring(0, 200) + "...");
+    
+    let data;
+    
+    // Try to parse as JSON
     try {
-      const res = await fetch("http://127.0.0.1:5001/optimize", {
-        method: "POST",
-        body: formData,
-      });
-
-      if (!res.ok) {
-        const errorData = await res.json();
-        throw new Error(errorData.error || "Optimization failed");
+      data = JSON.parse(responseText);
+    } catch (jsonError) {
+      // If it's HTML error page
+      if (responseText.includes('<html') || responseText.includes('<!DOCTYPE')) {
+        // Try to extract error message from HTML
+        let errorMsg = "Server returned HTML error page";
+        
+        // Simple HTML parsing to get error
+        const match = responseText.match(/<pre[^>]*>([\s\S]*?)<\/pre>/i) || 
+                     responseText.match(/<title[^>]*>([\s\S]*?)<\/title>/i) ||
+                     responseText.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
+        
+        if (match && match[1]) {
+          errorMsg = `Server error: ${match[1].substring(0, 100)}`;
+        }
+        
+        throw new Error(errorMsg);
+      } else {
+        // Not HTML, but not JSON either
+        throw new Error(`Invalid response: ${responseText.substring(0, 100)}...`);
       }
-
-      const data = await res.json();
-      console.log("Optimization result from backend:", data);
-
-      navigate("/pattern/result", { state: { result: data } });
-    } catch (err) {
-      console.error("Error during optimization:", err);
-      alert(`Error during optimization: ${err.message}`);
-    } finally {
-      setLoading(false);
     }
-  };
+
+    // Check for error in JSON response
+    if (data.error) {
+      throw new Error(data.error);
+    }
+
+    // Check HTTP status
+    if (!res.ok) {
+      throw new Error(data.message || `HTTP ${res.status}: ${res.statusText}`);
+    }
+
+    console.log("✅ Optimization successful!", data);
+    
+    // Navigate to results page
+    navigate("/pattern/result", { state: { result: data } });
+
+  } catch (err) {
+    console.error("❌ Error during optimization:", err);
+    alert(`Error: ${err.message}`);
+  } finally {
+    setLoading(false);
+  }
+};
+// Add this button somewhere in your JSX, maybe after the optimize button:
+<div className="text-center mt-4">
+  <button
+    onClick={async () => {
+      try {
+        const res = await fetch("http://127.0.0.1:5001/test");
+        const data = await res.json();
+        alert(`Server test: ${data.status}\nMessage: ${data.message}`);
+      } catch (err) {
+        alert(`Server test failed: ${err.message}`);
+      }
+    }}
+    className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm"
+  >
+    Test Server Connection
+  </button>
+</div>
 
   return (
     <div className="relative min-h-screen bg-black text-white px-6 py-16 overflow-hidden">
