@@ -21,10 +21,12 @@ It also integrates **AI-driven analytics**, predictive alerts, and interactive t
 - Provides **professional analysis** with primary driver, risk, and actionable recommendations.
 - Supports multiple product types: Recycled Poly, Organic Cotton, Synthetic Blend, Microfiber.
 - Multi-line, concise dashboard analytics.
+- <img width="1304" height="996" alt="tracker" src="https://github.com/user-attachments/assets/9b8f5806-539a-405a-bd26-c93fc7a62ae1" />
 - Run via  (python app.py)
 
 
-### AI Pattern Layout Optimizer
+### AI Pattern 
+Layout Optimizer
 - Uses a **Genetic Algorithm (GA)** and **Computer Vision (CV)** to optimize fabric layouts.
 - Maximizes utilization (80–90%) and reduces fabric waste.
 - Generates **DXF files** for production.
@@ -36,16 +38,21 @@ It also integrates **AI-driven analytics**, predictive alerts, and interactive t
 - Upload CSV or PDF reports to analyze environmental metrics.
 - Generates automated analytics with clear sustainability insights.
 - Run via `Python analyzer.py`.
+ <img width="1304" height="996" alt="image" src="https://github.com/user-attachments/assets/f394e557-a94c-4400-8b7b-d2db081c16aa" />
 
 ### MessageAlert
 - Allows managers to send messages/alerts to employees or brand members.
 - Messages appear in the **Alert Center** for real-time communication.
 - Run via `Python app.py` in the respective Flask folder.
+ <img width="1304" height="996" alt="image" src="https://github.com/user-attachments/assets/59a3ece5-00cf-4864-a403-6a294cde33ab" />
+
 
 ### EcoBoot AI Chatbot
 - Interactive AI chatbot for discussing sustainability practices.
 - Provides guidance and answers questions related to environmental impact.
 - Run backend with: uvicorn eco_bot:app --reload --port 8000
+  <img width="1304" height="996" alt="image" src="https://github.com/user-attachments/assets/4e19a5d0-a0f2-4a5b-81d8-20f148e4b192" />
+
 
 ## 📦 Additional Project Resources
 
