@@ -24,7 +24,7 @@ const ReportPage = () => {
       const formData = new FormData();
       formData.append("file", file);
 
-      const res = await fetch("http://127.0.0.1:5001/upload-report", {
+      const res = await fetch("http://127.0.0.1:5002/upload-report", {
         method: "POST",
         body: formData,
       });
@@ -71,11 +71,11 @@ const ReportPage = () => {
             <FaCloudUploadAlt className="text-5xl text-yellow-400 mb-2 animate-bounce" />
             <input
               type="file"
-              accept=".pdf,.csv"
+              accept=".pdf,.csv,.json"
               onChange={handleFileUpload}
               className="hidden"
             />
-            <span className="text-gray-300">Click to Upload .pdf or .csv</span>
+            <span className="text-gray-300">Click to Upload .pdf, .json or .csv </span>
           </label>
 
           {file && (
